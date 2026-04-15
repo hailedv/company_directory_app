@@ -46,4 +46,8 @@ class LocalStorageService extends GetxService {
 
   String? getUserName() => _prefs.getString('user_name');
   String? getUserEmail() => _prefs.getString('user_email');
+
+  bool getDarkMode() => _prefs.getBool('dark_mode') ?? false;
+  Future<void> saveDarkMode(bool value) async =>
+      await _prefs.setBool('dark_mode', value);
 }
