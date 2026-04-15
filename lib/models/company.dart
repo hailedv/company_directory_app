@@ -1,3 +1,4 @@
+/// Represents a company entity returned from the API.
 class Company {
   final int id;
   final String name;
@@ -6,6 +7,8 @@ class Company {
   final int employeeCount;
   final String industry;
   final String ceoName;
+
+  /// Whether this company is marked as a favorite by the user.
   bool isFavorite;
 
   Company({
@@ -19,6 +22,7 @@ class Company {
     this.isFavorite = false,
   });
 
+  /// Creates a [Company] from a JSON map returned by the API.
   factory Company.fromJson(Map<String, dynamic> json) {
     return Company(
       id: json['id'] ?? 0,
@@ -31,14 +35,15 @@ class Company {
     );
   }
 
+  /// Converts this [Company] to a JSON map for local storage.
   Map<String, dynamic> toJson() => {
-    'id': id,
-    'name': name,
-    'address': address,
-    'country': country,
-    'employeeCount': employeeCount,
-    'industry': industry,
-    'ceoName': ceoName,
-    'isFavorite': isFavorite,
-  };
+        'id': id,
+        'name': name,
+        'address': address,
+        'country': country,
+        'employeeCount': employeeCount,
+        'industry': industry,
+        'ceoName': ceoName,
+        'isFavorite': isFavorite,
+      };
 }
